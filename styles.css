@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin:300,600,700&display=swap');
+
+/***********/
+/* GENERAL */
+/***********/
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+/* LOADER */
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    visibility: visible;
+    background-color: #FFFFFF;
+    transition: visibility .4s 0s, opacity .4s, background-color .6s ease-in-out;
+    z-index: 1000;
+}
+
+.loader-logo {
+    animation: .6s 1 both fadeOutUp;
+    animation-delay: 1.2s;
+}
+
+@keyframes fadeOutUp {
+    from {
+        opacity: 1
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        -moz-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0)
+    }
+}
+
+.loader-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    overflow: hidden;
+    animation: .6s 1 both fadeOutDown;
+    animation-delay: 1.2s;
+}
+
+@keyframes fadeOutDown {
+    from {
+        opacity: 1
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        -moz-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0)
+    }
+}
+
+.loader-dots span {
+    height: 8px;
+    width: 8px;
+    margin: 5px;
+    /*border-radius: 50%;*/
+    background-color: #4F7DF3;
+    animation: fade 1s infinite;
+}
+
+.loader-dots span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.loader-dots span:nth-child(2) {
+    animation-delay: .1s;
+}
+
+.loader-dots span:nth-child(3) {
+    animation-delay: .2s;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0
+    }
+
+    50% {
+        opacity: .8
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+.loaded.loader {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.8s ease-out;
+}
+
+/*********/
+/* MAIN */
+/********/
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    margin: 0 auto;
+}
+
+header,
+section,
+footer {
+    flex-shrink: 0;
+    max-width: 720px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+    text-align: center;
+}
+
+.mt {
+    margin: 20px 0 0 0
+}
+
+.mg {
+    margin: 40px 0;
+}
+
+/***********/
+/* SECTION */
+/***********/
+
+section h1 {
+    font-size: 50px;
+    font-weight: 300;
+    color: #969696;
+}
+
+section h1 span {
+    font-weight: 700;
+}
+
+section span,
+section p {
+    color: #151f29;
+}
+
+section form {
+    position: relative;
+    display: flex;
+}
+
+section form label {
+    display:block;
+    flex-grow: 1;
+    width: 100%;
+}
+
+section form input {
+    height: 56px;
+    width: 100%;
+    padding: 18px 30px;
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    border: 1px solid #cdd5e8;
+    border-radius: 60px;
+    background-color: transparent;
+    outline: none;
+    overflow: hidden;
+}
+
+section form input::-webkit-input-placeholder {
+    color: #cdd5e8;
+}
+
+section form input::-moz-placeholder {
+    color: #cdd5e8;
+}
+
+section form input:-ms-input-placeholder {
+    color: #cdd5e8;
+}
+
+section form input:-moz-placeholder {
+    color: #cdd5e8;
+}
+
+
+section form.disable button {
+    background-color: #dddddd;
+    background-image: none;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+section form.disable button:hover {
+    background-color: #dddddd;
+}
+
+section form.disable input::-webkit-input-placeholder {
+    color: #dddddd;
+}
+
+section form.disable input::-moz-placeholder {
+    color: #dddddd;
+}
+
+section form.disable input:-ms-input-placeholder {
+    color: #dddddd;
+}
+
+section orm.disable input:-moz-placeholder {
+    color: #dddddd;
+}
+
+section form.error input {
+    border: 1px solid #FF5263;
+}
+
+section form label small {
+    font-size:12px;
+    text-align: left;
+    padding:0 30px;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+section form.error label small {
+    color:#FF5263;
+
+}
+
+section form.disable label small {
+    color:#00C851;
+}
+
+section form button {
+    flex-shrink: 0;
+    height: 56px;
+    width: 100%;
+    margin-left: 16px;
+    padding: 0;
+    max-width: 200px;
+    border: inherit;
+    border-radius: 60px;
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    outline: none;
+    color: #fff;
+    background-color: #4F7DF3;
+    box-shadow:0 10px 20px rgba(79,125,243,0.19), 0 6px 6px rgba(79,125,243,0.23);
+    cursor: pointer;
+}
+
+section form button:hover {
+    background-color: #7195f5;
+}
+
+/**********/
+/* FOOTER */
+/**********/
+
+footer .social ul {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+footer .social ul li+li {
+    margin-left: 12px;
+}
+
+footer .social ul li a {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 32px;
+    width: 32px;
+    border: 1px solid #ecebf9;
+    border-radius: 40px;
+}
+
+footer .social ul li a:hover {
+    border: 1px solid #4F7DF3;
+    background-color: #4F7DF3;
+}
+
+footer .social ul li a:hover svg.icon-facebook,
+footer .social ul li a:hover svg.icon-twitter,
+footer .social ul li a:hover svg.icon-instagram {
+    fill: #fff;
+}
+
+footer .social ul li a svg {
+    fill: #4F7DF3;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 7px;
+}
+
+footer .social small {
+    font-size:12px;
+    color: #969696;
+}
+
+@media screen and (max-width: 750px) {
+
+    .mg {
+        margin: 60px 0;
+    }
+
+    .mt {
+        margin: 40px 0 0 0;
+    }
+
+    .inner-container {
+        padding: 0 36px;
+    }
+
+    section h1 {
+        font-size:45px;
+    }
+
+    section p, section form input, section form button {
+        font-size:24px;
+    }
+
+    section form {
+        display:block;
+    }
+
+    section form input, section form button {
+        height: 80px;
+    }
+
+    section form label {
+        margin-bottom:20px;
+    }
+
+    section form input {
+        padding:18px 50px;
+    }
+
+    section form.error input {
+        border: 2px solid #FF5263;
+    }
+
+    section form label small {
+        font-size:20px;
+        text-align: center;
+        padding:0;
+        margin-bottom: 40px;
+    }
+
+    section form button {
+        margin-left: inherit;
+        max-width: inherit;
+    }
+
+    footer .social ul li a {
+        height: 62px;
+        width: 62px; 
+        border-radius:70px;
+    }
+
+    footer .social ul li a svg {
+        padding:14px;
+    }
+
+    footer .social small {
+        font-size:20px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+
+    .inner-container {
+        padding: 0;
+    }
+
+    .mg {
+        margin: 40px 0;
+    }
+
+    section form input, section form button {
+        height:60px;
+    }
+
+    section form input {
+        padding: 18px 30px;
+    }
+
+    section p, section form input, section form button, section form label small {
+        font-size:18px;
+    }
+
+    footer .social ul li a {
+        height: 42px;
+        width: 42px;
+        border-radius: 50px;
+    }
+
+    footer .social ul li a svg {
+        padding:10px;
+    }
+
+    footer .social small {
+        font-size:12px;
+    }
+}
