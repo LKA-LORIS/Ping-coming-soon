@@ -172,6 +172,25 @@ b {
     display: block;
 }
 
+h2 {
+    position: relative;
+    display: inline;
+    font-size: 3.2rem;
+    text-transform: uppercase;
+}
+
+h2::before {
+    content:'';
+    display: block;
+    position:absolute;
+    bottom:0.8rem;
+    right:-0.8rem;
+    height:0.6rem;
+    width: 0.6rem;
+    background-color: var(--blue);
+    border-radius: 0.1rem;
+}
+
 h1 {
     color: var(--grey);
     font-size: 4.8rem;
@@ -333,8 +352,15 @@ ul li:hover svg {
 
 @media screen and (max-width: 580px) {
 
-    header img {
-        height: 1.5rem
+    h2 {
+        font-size: 2rem;
+    }
+
+    h2:before {
+        height:0.4rem;
+        width: 0.4rem;
+        bottom:0.5rem;
+        right:-0.6rem;
     }
 
     h1 {
