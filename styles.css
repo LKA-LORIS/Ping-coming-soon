@@ -1,27 +1,53 @@
-@import url('https://fonts.googleapis.com/css?family=Libre+Franklin:300,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap');
 
-/***********/
-/* GENERAL */
-/***********/
+:root {
+    --darkgrey: #15202A;
+    --grey: #969696;
+    --white: #FFFFFF;
+    --blue: hsl(223, 87%, 63%, 100%);
+    --bluehover: hsl(223, 87%, 63%, 80%);
+    --blueborder: hsl(223, 87%, 63%, 15%);
+    --lightblue: #C2D3FF;
+    --red: #FF5466;
+}
 
-* {
+.clean-transition {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    -ms-transition: none !important;
+    transition: none !important
+}
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
+    min-width: 0;
+    min-height: 0;
 }
 
-img {
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-html,
-body {
+html {
     height: 100%;
-    width: 100%;
+    font-size: 62.5%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: auto;
+    overflow-wrap: break-word;
+    overflow: auto;
 }
 
 body {
+    display: flex;
+    align-items: center;
+    min-height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    font-size: 1.6rem;
     font-family: 'Libre Franklin', sans-serif;
-    font-size: 16px;
+    text-align: center;
+    background-color: var(--background);
     overflow-x: hidden;
 }
 
@@ -126,174 +152,125 @@ body {
     transition: all 0.8s ease-out;
 }
 
-/*********/
-/* MAIN */
-/********/
+/* */
 
-#container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    margin: 0 auto;
-}
-
-header,
-section,
-footer {
-    flex-shrink: 0;
-    max-width: 720px;
+main {
+    max-width: 69.6rem;
     width: 100%;
+    padding: 0 2.8rem;
+    margin: 5rem auto;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 0 40px;
-    text-align: center;
 }
 
-.mt {
-    margin: 20px 0 0 0
+img,
+b {
+    display: block;
 }
 
-.mg {
-    margin: 40px 0;
-}
-
-/***********/
-/* SECTION */
-/***********/
-
-section h1 {
-    font-size: 50px;
+h1 {
+    color: var(--grey);
+    font-size: 4.8rem;
     font-weight: 300;
-    color: #969696;
+    margin: 4rem 0 1.6rem 0;
 }
 
-section h1 span {
+h1>span {
+    color: var(--darkgrey);
     font-weight: 700;
 }
 
-section span,
-section p {
-    color: #151f29;
+p {
+    color: var(--darkgrey);
+    font-size: 2rem;
 }
 
-section form {
+form {
     position: relative;
     display: flex;
+    justify-content: center;
+    margin: 2rem 0 0 0;
 }
 
-section form label {
-    display:block;
-    flex-grow: 1;
+input {
+    position: relative;
+    height: 5.6rem;
     width: 100%;
-}
-
-section form input {
-    height: 56px;
-    width: 100%;
-    padding: 18px 30px;
+    padding: 1.8rem 3rem;
     font-family: 'Libre Franklin', sans-serif;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 300;
-    border: 1px solid #cdd5e8;
-    border-radius: 60px;
+    border: 1px solid var(--lightblue);
+    border-radius: 2.8rem;
     background-color: transparent;
     outline: none;
     overflow: hidden;
 }
 
-section form input::-webkit-input-placeholder {
-    color: #cdd5e8;
+input::-webkit-input-placeholder {
+    color: var(--lightblue);
 }
 
-section form input::-moz-placeholder {
-    color: #cdd5e8;
+input::-moz-placeholder {
+    color: var(--lightblue);
 }
 
-section form input:-ms-input-placeholder {
-    color: #cdd5e8;
+input:-ms-input-placeholder {
+    color: var(--lightblue);
 }
 
-section form input:-moz-placeholder {
-    color: #cdd5e8;
+input:-moz-placeholder {
+    color: var(--lightblue);
 }
 
-
-section form.disable button {
-    background-color: #dddddd;
-    background-image: none;
-    box-shadow: none;
-    cursor: not-allowed;
-}
-
-section form.disable button:hover {
-    background-color: #dddddd;
-}
-
-section form.disable input::-webkit-input-placeholder {
-    color: #dddddd;
-}
-
-section form.disable input::-moz-placeholder {
-    color: #dddddd;
-}
-
-section form.disable input:-ms-input-placeholder {
-    color: #dddddd;
-}
-
-section orm.disable input:-moz-placeholder {
-    color: #dddddd;
-}
-
-section form.error input {
-    border: 1px solid #FF5263;
-}
-
-section form label small {
-    font-size:12px;
-    text-align: left;
-    padding:0 30px;
+.error small, .success small {
+    position: absolute;
+    bottom: -2rem;
+    left: 3rem;
+    display: block;
+    color: var(--red);
+    font-size: 1.2rem;
     font-style: italic;
-    margin-top: 10px;
+    margin-top: 0.5rem;
+    text-align: left;
 }
 
-section form.error label small {
-    color:#FF5263;
-
+.success small {
+    color:green;
 }
 
-section form.disable label small {
-    color:#00C851;
-}
-
-section form button {
-    flex-shrink: 0;
-    height: 56px;
+button {
+    height: 5.6rem;
     width: 100%;
-    margin-left: 16px;
+    max-width: 20rem;
+    margin-left: 1.6rem;
     padding: 0;
-    max-width: 200px;
     border: inherit;
-    border-radius: 60px;
+    border-radius: 6rem;
     font-family: 'Libre Franklin', sans-serif;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 600;
-    outline: none;
     color: #fff;
-    background-color: #4F7DF3;
-    box-shadow:0 10px 20px rgba(79,125,243,0.19), 0 6px 6px rgba(79,125,243,0.23);
+    background-color: var(--blue);
+    box-shadow: 0 0.5rem 1rem 0.2rem rgba(76, 123, 243, 0.23);
+    transition: all 0.2s ease;
+    outline: none;
     cursor: pointer;
 }
 
-section form button:hover {
-    background-color: #7195f5;
+button:hover {
+    background-color: var(--lightblue);
 }
 
-/**********/
-/* FOOTER */
-/**********/
+section img {
+    margin: 7.2rem 0;
+}
 
-footer .social ul {
+ul {
     display: flex;
     justify-content: center;
     margin: 0;
@@ -301,147 +278,90 @@ footer .social ul {
     list-style-type: none;
 }
 
-footer .social ul li+li {
-    margin-left: 12px;
+ul li+li {
+    margin-left: 1.2rem;
 }
 
-footer .social ul li a {
+ul li a {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 32px;
-    width: 32px;
-    border: 1px solid #ecebf9;
-    border-radius: 40px;
+    align-items: center;
+    height: 3.2rem;
+    width: 3.2rem;
+    border: 0.1rem solid var(--blueborder);
+    border-radius: 3.2rem;
+    transition: all 0.3s ease-out;
 }
 
-footer .social ul li a:hover {
-    border: 1px solid #4F7DF3;
-    background-color: #4F7DF3;
+ul li:hover a {
+    border: 0.1rem solid var(--blue);
+    background-color: var(--blue);
 }
 
-footer .social ul li a:hover svg.icon-facebook,
-footer .social ul li a:hover svg.icon-twitter,
-footer .social ul li a:hover svg.icon-instagram {
+ul li:hover svg {
     fill: #fff;
 }
 
-footer .social ul li a svg {
-    fill: #4F7DF3;
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
-    padding: 7px;
+.copyright {
+    display: block;
+    color: var(--grey);
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-top: 2.5rem;
 }
 
-footer .social small {
-    font-size:12px;
-    color: #969696;
-}
+@media screen and (max-width: 768px) {
 
-@media screen and (max-width: 750px) {
-
-    .mg {
-        margin: 60px 0;
+    form {
+        flex-direction: column;
     }
 
-    .mt {
-        margin: 40px 0 0 0;
-    }
-
-    .inner-container {
-        padding: 0 36px;
-    }
-
-    section h1 {
-        font-size:45px;
-    }
-
-    section p, section form input, section form button {
-        font-size:24px;
-    }
-
-    section form {
-        display:block;
-    }
-
-    section form input, section form button {
-        height: 80px;
-    }
-
-    section form label {
-        margin-bottom:20px;
-    }
-
-    section form input {
-        padding:18px 50px;
-    }
-
-    section form.error input {
-        border: 2px solid #FF5263;
-    }
-
-    section form label small {
-        font-size:20px;
+    .error small, .success small {
+        position: initial;
         text-align: center;
-        padding:0;
-        margin-bottom: 40px;
     }
 
-    section form button {
-        margin-left: inherit;
-        max-width: inherit;
+    button {
+        max-width: initial;
+        margin-left: initial;
+        margin-top: 2rem;
     }
 
-    footer .social ul li a {
-        height: 62px;
-        width: 62px; 
-        border-radius:70px;
-    }
-
-    footer .social ul li a svg {
-        padding:14px;
-    }
-
-    footer .social small {
-        font-size:20px;
-    }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 580px) {
 
-    .inner-container {
-        padding: 0;
+    header img {
+        height: 1.5rem
     }
 
-    .mg {
-        margin: 40px 0;
+    h1 {
+        font-size: 2.2rem;
     }
 
-    section form input, section form button {
-        height:60px;
+    p {
+        font-size: 1.2rem;
     }
 
-    section form input {
-        padding: 18px 30px;
+    input {
+        height: 4rem;
+        font-size: 1.2rem;
+        padding: 1rem 3rem;
     }
 
-    section p, section form input, section form button, section form label small {
-        font-size:18px;
+    .error small, .success small {
+        font-size: 1rem;
     }
 
-    footer .social ul li a {
-        height: 42px;
-        width: 42px;
-        border-radius: 50px;
+    button {
+        height: 4rem;
+        font-size: 1.2rem;
     }
 
-    footer .social ul li a svg {
-        padding:10px;
-    }
-
-    footer .social small {
-        font-size:12px;
+    .copyright {
+        font-size: 1rem;
+        margin: 2.5rem 0 0 0;
     }
 }
